@@ -23,7 +23,7 @@ def countday(day):
 
     daycount += d
 
-    print(daycount)
+    print("%s is %d" % (day,daycount))
 
 countday('20201231')
 countday('20200101')
