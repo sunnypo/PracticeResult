@@ -9,7 +9,7 @@ for d1 in digits:
     for d2 in digits:
         for d3 in digits:
             if d1==d2 or d1==d3 or d2==d3 :
-                break
+                continue
             print (d1*100+d2*10+d3)
             count += 1
 
