@@ -17,7 +17,7 @@ def translateNumberToEnglish(number,base=1):
         enumber += "%s %s " % (translateNumberToEnglish(number//1000,base),BASE_CONSTANT[base])
         number = number - number//1000*1000
     if number == 0:
-        return ""
+        return NUMBER_CONSTANT[number]
     # 百位数处理
     if number//100 :
         d = number//100
@@ -33,6 +33,10 @@ def translateNumberToEnglish(number,base=1):
             enumber += " %s-%s" % (IN_HUNDRED_CONSTANT[n2],NUMBER_CONSTANT[n3])
     return enumber
 
+print("0",translateNumberToEnglish(0))
+print("1",translateNumberToEnglish(1))
+print("12",translateNumberToEnglish(12))
+print("21",translateNumberToEnglish(21))
 print("111",translateNumberToEnglish(111))
 print("101",translateNumberToEnglish(101))
 print("121",translateNumberToEnglish(121))
