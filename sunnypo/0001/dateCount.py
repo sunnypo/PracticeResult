@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-
-YYYY = str('0000')
-MM = str('00')
-DD = str('00')
 def date(YYYY,MM,DD):
     YYYY = int(YYYY)
     MM = int(MM)
@@ -15,13 +11,13 @@ def date(YYYY,MM,DD):
             numberOfDays -= 2
         else:
             numberOfDays -= 3
-    if MM >= 4:
+    if MM > 4:
         numberOfDays -= 1
-        if MM >= 6:
+        if MM > 6:
             numberOfDays -= 1
-            if MM >= 9:
+            if MM > 9:
                 numberOfDays -= 1
-                if MM >= 11:
+                if MM > 11:
                     numberOfDays -= 1
     print(numberOfDays)
 
