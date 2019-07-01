@@ -10,7 +10,7 @@ def date(YYYY,MM,DD):
     MM = int(MM)
     DD = int(DD)
     numberOfDays = 31 * ( MM - 1 ) + DD
-    if MM >= 2:
+    if MM > 2:
         if YYYY%4 == 0:
             numberOfDays -= 2
         else:
