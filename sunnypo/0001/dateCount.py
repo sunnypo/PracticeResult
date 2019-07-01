@@ -25,5 +25,7 @@ def date(YYYY,MM,DD):
                     numberOfDays -= 1
     print(numberOfDays)
 
-date('2012','12','31')
-date('2011','12','31')
+date('2012','12','31')  # 366
+date('2011','12','31')  # 365
+date('2012','01','01')  # 1
+date('2012','02','01')  # 32
