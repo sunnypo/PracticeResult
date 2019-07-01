@@ -16,8 +16,6 @@ def translateNumberToEnglish(number,base=1):
         base += 1
         enumber += "%s %s " % (translateNumberToEnglish(number//1000,base),BASE_CONSTANT[base])
         number = number - number//1000*1000
-    if number == 0:
-        return NUMBER_CONSTANT[number]
     # 百位数处理
     if number//100 :
         d = number//100
@@ -33,16 +31,32 @@ def translateNumberToEnglish(number,base=1):
             enumber += " %s-%s" % (IN_HUNDRED_CONSTANT[n2],NUMBER_CONSTANT[n3])
     return enumber
 
-print("0",translateNumberToEnglish(0))
-print("1",translateNumberToEnglish(1))
-print("12",translateNumberToEnglish(12))
-print("21",translateNumberToEnglish(21))
-print("111",translateNumberToEnglish(111))
-print("101",translateNumberToEnglish(101))
-print("121",translateNumberToEnglish(121))
-print("2,121",translateNumberToEnglish(2121))
-print("912,121",translateNumberToEnglish(912121))
-print("12,912,121",translateNumberToEnglish(12912121))
-print("131,912,121",translateNumberToEnglish(131912121))
-print("119,131,912,121",translateNumberToEnglish(119131912121))
-print("999,131,912,121",translateNumberToEnglish(999131912121))
+def nToe(number):
+    if number == 0:
+        return "你为什么要写一张支票呢？"
+    elif number >= 1000000000000:
+        return "XD！一张支持不够你用的，你钱太多了，应该高薪请我帮你写支票了！"
+    elif number < 1:
+        return translateNumberToEnglish(int(number*100)) + " cents"
+    elif number*100//100 < number :
+        return translateNumberToEnglish(int(number)) + " dollars and" + translateNumberToEnglish(int((number-number*100//100)*100)) + " cents"
+    else:
+        return translateNumberToEnglish(number) + " dollars"
+
+print("0",nToe(0))
+print("1",nToe(1))
+print("12",nToe(12))
+print("21",nToe(21))
+print("111",nToe(111))
+print("101",nToe(101))
+print("121",nToe(121))
+print("2,121",nToe(2121))
+print("912,121",nToe(912121))
+print("12,912,121",nToe(12912121))
+print("131,912,121",nToe(131912121))
+print("119,131,912,121",nToe(119131912121))
+print("999,131,912,121",nToe(999131912121))
+print("0.25",nToe(0.25))
+print("1.11",nToe(1.11))
+print("0",nToe(0))
+print("1,000,000,000,000",nToe(1000000000000))
