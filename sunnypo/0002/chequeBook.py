@@ -8,70 +8,70 @@ seniorEnglishTransaction = {2:'twenty', 3:'thirty', 4:'fourty', 5:'fifty', 6:'si
 
 number = 0
 def cheque(number):
-    english = []
+    enumber = ""
     while number > 0:
         if number > 1000000000:
             if number >= 100000000000:
-                english.append(basicEnlishTransition[number//100000000000])
-                english.append('hundred')
+                enumber += " " + basicEnlishTransition[number//100000000000]
+                enumber += ' hundred'
                 number = number % 100000000000 
             if 100000000000 > number > 20000000000:
-                english.append(seniorEnglishTransaction[number//10000000000])
+                enumber += " " + seniorEnglishTransaction[number//10000000000]
                 number = number % 10000000000
             if 20000000000 > number >= 1000000000:
-                english.append(basicEnlishTransition[number//1000000000])
+                enumber += " " + basicEnlishTransition[number//1000000000]
                 number = number % 1000000000
-            english.append('billion')
+            enumber += ' billion'
         if number > 1000000:
             if number >= 100000000:
-                english.append(basicEnlishTransition[number//100000000])
-                english.append('hundred')
+                enumber += " " + basicEnlishTransition[number//100000000]
+                enumber += ' hundred'
                 number = number % 100000000 
             if 100000000 > number > 20000000:
-                english.append(seniorEnglishTransaction[number//10000000])
+                enumber += " " + seniorEnglishTransaction[number//10000000]
                 number = number % 10000000
             if 20000000 > number >= 1000000:
-                english.append(basicEnlishTransition[number//1000000])
+                enumber += " " + basicEnlishTransition[number//1000000]
                 number = number % 1000000
-            english.append('million')
+            enumber += ' million'
         if number > 1000:
             if number >= 100000:
-                english.append(basicEnlishTransition[number//100000])
-                english.append('hundred')
+                enumber += " " + basicEnlishTransition[number//100000]
+                enumber += ' hundred'
                 number = number % 100000 
             if 100000 > number > 20000:
-                english.append(seniorEnglishTransaction[number//10000])
+                enumber += " " + seniorEnglishTransaction[number//10000]
                 number = number % 10000
             if 20000 > number >= 1000:
-                english.append(basicEnlishTransition[number//1000])
+                enumber += " " + basicEnlishTransition[number//1000]
                 number = number % 1000
-            english.append('thousand')
+            enumber += ' thousand'
         if number >= 100:
-            english.append(basicEnlishTransition[number//100])
-            english.append('hundred')
+            enumber += " " + basicEnlishTransition[number//100]
+            enumber += ' hundred'
             number = number % 100 
             if number > 0:
-                english.append('and')
+                enumber += ' and'
         if 100 > number > 20:
-             english.append(seniorEnglishTransaction[number//10])
+             enumber += " " + seniorEnglishTransaction[number//10]
              number = number % 10
         if 20 > number >= 1:
-            english.append(basicEnlishTransition[number//1])
+            enumber += " " + basicEnlishTransition[number//1]
             number = number % 1
         if 1 > number > 0:
-            english.append('point')
+            enumber += ' point'
             number = number * 100 + 1
             if 100 > number > 20:
-                english.append(seniorEnglishTransaction[number//10])
+                enumber += " " + seniorEnglishTransaction[number//10]
                 number = number % 10
             if 20 > number >= 1:
-                english.append(basicEnlishTransition[number//1])
+                enumber += " " + basicEnlishTransition[number//1]
                 number = number % 10
-            english.append('cent')
+            enumber += ' cent'
             number = number - number 
-    print(str(english))
+    print(enumber)
 
-cheque(95642351.32)
+cheque(995642351.32)
 cheque(0)
 cheque(1)
 cheque(12)
