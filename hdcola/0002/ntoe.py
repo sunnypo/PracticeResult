@@ -15,19 +15,19 @@ def translateNumberToEnglish(number,base=1):
     if number//1000:
         base += 1
         enumber += "%s %s " % (translateNumberToEnglish(number//1000,base),BASE_CONSTANT[base])
-        number = number - number//1000*1000
+        number = number%1000
     # 百位数处理
     if number//100 :
         d = number//100
         enumber += "%s %s" % (NUMBER_CONSTANT[d],BASE_CONSTANT[1])
     # 后两位数处理
-    d2 = number-number//100*100
+    d2 = number%100
     if d2 :
         if d2 < 20:
             enumber += " %s" % NUMBER_CONSTANT[d2]
         else:
             n2 = d2//10
-            n3 = d2-n2*10
+            n3 = d2%10
             enumber += " %s-%s" % (IN_HUNDRED_CONSTANT[n2],NUMBER_CONSTANT[n3])
     return enumber
 
